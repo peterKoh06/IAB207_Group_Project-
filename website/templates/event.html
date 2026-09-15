@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>The Mixer Port</title>
+        <script src="./static/styles/bootstrap.bundle.js"></script>
+        <link href="./static/styles/bootstrap.css" rel="stylesheet">
+        <link rel="stylesheet" href="./static/styles/styles.css">
+        <link rel="icon" type="image/x-icon" href="./static/img/The Mixer.svg">
+    </header>
+
+    <body>
+
+
+    <!--the navbar header with all the important stuff and gunk-->
+      <nav class="navbar navbar-custom navbar-expand-lg">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">The Mixer Port</a>
+
+         <!-- The navbar's Brand Image-->
+         <a class="navbar-brand" href="#">
+           <img src="./static/img/The Mixer.svg" alt="Mixer Icon" width="30" height="24">
+           </a>
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <!-- CHANGE HREFS TO THE OTHER PLACES BEFORE SUBMITTING!!!!! -->
+              <a class="nav-link" aria-current="page" href="./index.html">Home</a>
+
+               <a class="nav-link" href="./history.html">History</a>
+                
+               <a class="nav-link" href="create.html">Create Event</a>
+
+
+                <button type="button" class="btn btn-primary position-absolute end-0" data-bs-toggle="modal" data-bs-target="#loginModal">
+                  Login
+                </button>
+
+                <!-- Login Area -->
+                <div class="modal slide" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+
+                      <div class="modal-header">
+                        <h5 class="modal-title fs-5" id="loginModal">Log in</h5>
+                      </div>
+                      
+                      
+                      <div class="modal-body">
+                        <form>
+                          <div class="mb-3">
+                            <label for="loginDetailsEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="loginDetailsEmail" aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                          </div>
+                          <div class="mb-3">
+                            <label for="loginDetailsPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="loginDetailsPassword">
+                          </div>
+                          <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Remember Details</label>
+                          </div>
+                          <button type="button" class="btn btn-secondary">Create Account</button>
+                        </form>
+                      </div>
+
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Log in</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+          </div>
+        </div>
+      </nav>
+
+
+      <br>
+      <!-- Image to one side, further details on the other side, 
+       somewhere there's a date, a small description Then a larger description-->
+
+
+      <div class="row">
+
+       <div class="column col-md-6 col-sm-11">
+            <div class="card">
+                        <img src="./static/img/edgar-chaparro-Lwx-q6OdGAc-unsplash.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Pub Crawl <span class="badge text-bg-warning">5 Tickets Left</span></h5>
+                                <p class="card-text">Contains Alcohol</p>
+                                <p class="card-text">17 September 4:00pm</p>
+
+                            <h5 class="card-text">Host:</h5>
+                            <p class="card-text">Username Standard.</p>
+
+                                <a class="btn-primary" href="./payment.html">Book Tickets</a>
+                        </div>
+            </div>
+
+
+       </div>
+
+       <div class="column col-md-6 col-sm-11"> 
+
+        <div class="card">
+            <p class="card-text">An innocent pub crawl. All invited, IDs checked at beginning of crawl before continuing onwards.</p>
+            
+            <h3>Description:</h3>
+            <p>This is a pub crawl for anyone in the area to have fun. We invite all adults of any age, size, and form.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lorem quam, semper in vestibulum vel, euismod quis felis. Curabitur tempor placerat metus et cursus. Cras vitae ipsum et erat vestibulum efficitur ut non ipsum. Ut consequat at nisi sit amet consectetur. In hac habitasse platea dictumst. Ut sed nisl ac velit tristique dictum et et quam. Pellentesque malesuada lacus at nibh malesuada tempus vitae vel ligula.</p>
+
+            <p>Praesent eleifend commodo dolor ut malesuada. Pellentesque eu eros at velit euismod sodales. Fusce viverra eu lectus vel vestibulum. Fusce feugiat fermentum nulla a posuere. Donec dolor mauris, molestie et tempor in, placerat sed sapien. Vivamus arcu nunc, posuere et commodo id, lobortis at erat. Nulla ut quam felis. Maecenas finibus ligula diam, eget pulvinar lorem porta semper. Duis consequat sit amet nulla a pharetra. Etiam tellus diam, consequat et nisi nec, viverra egestas turpis. Aenean egestas rutrum erat, vitae porta ex efficitur non. Curabitur feugiat mi a lacus elementum, eu finibus diam cursus. Cras efficitur dui id nibh blandit tempus. Nullam vel elementum ex.</p>
+            
+
+
+            <h3>Location:</h3> 
+            <p>The Regular Bar, moving to other areas after 4:20pm.</p>
+
+
+
+        </div>
+
+        
+       </div>
+
+       </div>
+
+
+       <br>
+
+
+       <div class="row py-3 align-items-center">
+        <label for="commentArea">Comment</label>
+        <input type="text" id="commentArea"> 
+        <button class="btn-primary">Post</button>
+       </div>
+
+
+       <div class="row">
+
+        <div class="card">
+          <div class="card-title"><h3>Divman</h3></div>
+          <p class="card-text">This place is great!</p>
+        </div>
+
+
+
+
+       </div>
+
+
+
+
+
+      
+    <!-- Footer -->
+    <div class="container-fluid" style="padding:0;margin:0">
+      
+    <footer class="d-flex flex-row  justify-content-between align-items-center py-3  my-4 mb-3 border-top">
+    <p class="col-md-4 mb-0 text-muted">(Copyright, The Mixer Port 2026)</p>
+
+
+    <ul class="nav col-md-4 justify-content-end">
+      <li class="nav-item"><a href="./index.html" class="nav-link px-2 text-muted">Home</a></li>
+      <li class="nav-item"><a href="./event.html" class="nav-link px-2 text-muted">Event</a></li>
+      <li class="nav-item"><a href="./history.html" class="nav-link px-2 text-muted">History</a></li>
+      <li class="nav-item"><a href="./payment.html" class="nav-link px-2 text-muted">Payment</a></li>
+      <li class="nav-item"><a href="./create.html" class="nav-link px-2 text-muted">Create</a></li>
+    </ul>
+
+
+
+    </footer>
+    </div>
+    </body>
+
+
+
+
+
+</html>

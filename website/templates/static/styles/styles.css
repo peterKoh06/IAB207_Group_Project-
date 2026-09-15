@@ -1,0 +1,59 @@
+body {
+
+    background-color: #221C35;
+    color: #FFFFFF;
+}
+
+footer {
+
+    background-color: rebeccapurple;
+    color: white;
+
+    max-width: 100%;
+    overflow-x: hidden;
+
+    position:sticky;
+    bottom:0px;
+    left: 0px;
+    right: 0px;
+
+}
+
+h1, h2, h3, h4, h5 {
+
+    overflow-y: hidden;
+}
+
+.carousel-inner, .carousel-control-prev, .carousel-control-next {
+
+    width:75%;
+    margin: auto;
+    height:650px;
+
+}
+
+
+.navbar-custom {
+    background-color: rebeccapurple;
+}
+
+
+.btn-primary {
+
+    background-color: darkmagenta;
+    color: white;
+    outline:#221C35;
+
+}
+
+.dropdown {
+
+    overflow:visible;
+}
+
+* {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x:hidden;
+
+
+}
