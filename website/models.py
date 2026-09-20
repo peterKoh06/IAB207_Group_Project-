@@ -38,8 +38,24 @@ class EventOffering(db.Model):
     event = db.relationship('Event', backref='offerings')
     offering = db.relationship('Offering', backref='events')
 
-"""class Comment(db.Model):
-    pass
+class Comment(db.Model):
+    __tablename__ = "Comments"
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('Users.id'), nullable=False)
+    event_id = db.Column(db.Integer, db.ForeignKey('Events.id'), nullable=False)
+    timestamp = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
+    content = db.Column(db.Text, nullable=False)
+
+    user = db.relationship('User', backref='comments')
+    event = db.relationship('Event', backref='comments')
 
 class Booking(db.Model):
-    pass"""
+    __tablename__ = "Bookings"
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('Users.id'), nullable=False)
+    event_id = db.Column(db.Integer, db.ForeignKey('Events.id'), nullable=False)
+    timestamp = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
+    tickets = db.Column(db.Integer, nullable=False)
+
+    user = db.relationship('User', backref='bookings')
+    event = db.relationship('Event', backref='bookings')
