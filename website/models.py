@@ -1,5 +1,5 @@
 from . import db
-from datetime import datetime
+from datetime import datetime, timezone
 from flask_login import UserMixin
 
 class User(db.Model, UserMixin):
@@ -43,7 +43,7 @@ class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     user_id = db.Column(db.Integer, db.ForeignKey('Users.id'), nullable=False)
     event_id = db.Column(db.Integer, db.ForeignKey('Events.id'), nullable=False)
-    timestamp = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
+    timestamp = db.Column(db.DateTime, default=datetime.now(timezone.utc), nullable=False)
     content = db.Column(db.Text, nullable=False)
 
     user = db.relationship('User', backref='comments')
