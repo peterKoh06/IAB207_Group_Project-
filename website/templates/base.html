@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
 
@@ -6,10 +7,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>The Mixer Port</title>
-    <script src="./static/styles/bootstrap.bundle.js"></script>
-    <link href="./static/styles/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="./static/styles/styles.css">
-    <link rel="icon" type="image/x-icon" href="./static/img/The Mixer.svg">
+    <script src="{{ url_for('static', filename='bootstrap.bundle.js') }}"></script>
+    <link href="{{ url_for('static', filename='bootstrap.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='The Mixer.svg') }}">
 </head>
 {% endblock %}
 
@@ -63,42 +64,7 @@
                     Login
                     </button>
 
-                    <!-- Login Area -->
-                    <div class="modal slide" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-
-                        <div class="modal-header">
-                            <h5 class="modal-title fs-5" id="loginModal">Log in</h5>
-                        </div>
-                        
-                        
-                        <div class="modal-body">
-                            <form>
-                            <div class="mb-3">
-                                <label for="loginDetailsEmail" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="loginDetailsEmail" aria-describedby="emailHelp">
-                                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="loginDetailsPassword" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="loginDetailsPassword">
-                            </div>
-                            <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Remember Details</label>
-                            </div>
-                            <button type="button" class="btn btn-secondary">Create Account</button>
-                            </form>
-                        </div>
-
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Log in</button>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
+                    
 
                 </div>
             </div>
