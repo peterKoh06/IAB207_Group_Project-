@@ -13,7 +13,7 @@ def event():
 
 # History shouldn't be accessible when you aren't logged in- session 
 @main_bp.route('/history')
-def event():
+def history():
     return render_template('history.html')
 
 # For the paynment page it should be .../eventID/payment and not just /payment 
