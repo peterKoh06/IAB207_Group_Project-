@@ -16,14 +16,7 @@
   {% endblock %}
   </head>
 
-
-
-
-
-    <body> 
-
-    {% block navbarTop %}
-
+    <header>
         <!-- The following little snippet is for if there's an error-->
             {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -74,8 +67,9 @@
             </div>
             </div>
         </nav>      
+            {% block navbarTop %}{% endblock %} 
+    </header>
 
-    {% endblock %}
   
 
       
@@ -227,14 +221,9 @@
     
       </div>
 
-      
-
-
-
     </body>
 
 
-    {% block footer %}
     <!-- Footer -->
     <div class="container-fluid" style="padding:0;margin:0">
       
@@ -244,17 +233,17 @@
 
     <ul class="nav col-md-4 justify-content-end">
       <li class="nav-item"><a href="./index.html" class="nav-link px-2 text-muted">Home</a></li>
-      <li class="nav-item"><a href="./event.html" class="nav-link px-2 text-muted">Event</a></li>
+      <li class="nav-item"><a href="./user.html" class="nav-link px-2 text-muted">User</a></li>
       <li class="nav-item"><a href="./history.html" class="nav-link px-2 text-muted">History</a></li>
-      <li class="nav-item"><a href="./payment.html" class="nav-link px-2 text-muted">Payment</a></li>
       <li class="nav-item"><a href="./create.html" class="nav-link px-2 text-muted">Create</a></li>
     </ul>
 
 
-
+    
+    {% block footer %}{% endblock %}
     </footer>
     </div>
 
-    {% endblock %}
+
 
 </html>
