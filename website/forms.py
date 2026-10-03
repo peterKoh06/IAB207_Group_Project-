@@ -1,21 +1,20 @@
 from flask_wtf import FlaskForm
-from wtforms.fields import TextAreaField, SubmitField, StringField, PasswordField
-from wtforms.validators import InputRequired, Length, Email, EqualTo
+from wtforms.fields import SubmitField, StringField, PasswordField
+from wtforms.validators import InputRequired, Email, EqualTo, Length 
+from werkzeug.security import generate_password_hash
+from werkzeug.security import check_password_hash 
 
-# creates the login information
-class LoginForm(FlaskForm):
-    user_name=StringField("User Name", validators=[InputRequired('Enter user name')])
-    password=PasswordField("Password", validators=[InputRequired('Enter user password')])
-    submit = SubmitField("Login")
 
- # this is the registration form
 class RegisterForm(FlaskForm):
-    user_name=StringField("User Name", validators=[InputRequired()])
-    email = StringField("Email Address", validators=[Email("Please enter a valid email")])
-    # linking two fields - password should be equal to data entered in confirm
-    password=PasswordField("Password", validators=[InputRequired(),
-                  EqualTo('confirm', message="Passwords should match")])
-    confirm = PasswordField("Confirm Password")
+  username = StringField('User Name', validators=[InputRequired(), Length(min=3, max=12)])
+  email = StringField('Email ID', validators=[InputRequired(),Email() ])
+  password = PasswordField('Password', validators=[InputRequired(),Length(min=8, max=12)])
+  confirm = PasswordField('Confirm Password', 
+          validators=[InputRequired(), EqualTo('password', message='Password must match')])
+  submit = SubmitField('Register')
 
-    # submit button
-    submit = SubmitField("Register")
+
+class LoginForm(FlaskForm):
+    username = StringField('User Name', validators=[InputRequired()])
+    password = PasswordField('Password', validators=[InputRequired()])
+    submit = SubmitField('Login')
