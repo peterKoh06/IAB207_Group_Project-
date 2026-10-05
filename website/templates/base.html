@@ -4,16 +4,17 @@
 
 
   <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Mixer Port</title>
+
     <script src="{{ url_for('static', filename='styles/bootstrap.bundle.js') }}"></script>
     <link href="{{ url_for('static', filename='styles/bootstrap.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/The Mixer.svg') }}">
     
-  {% block header %}
-  {% endblock %}
+
+    <title>{% block title %} Home {% endblock %} - The Mixer Port</title>
   </head>
 
     <header>
@@ -50,11 +51,11 @@
 
 
                 <!-- CHANGE HREFS TO THE OTHER PLACES BEFORE SUBMITTING!!!!! -->
-                <a class="nav-link" aria-current="page" href="./index.html">Home</a>
+                <a class="nav-link" aria-current="page" href="{{ url_for('main.index') }}">Home</a>
 
-                <a class="nav-link" href="./history.html">History</a>
+                <a class="nav-link" href="{{ url_for('main.history') }}">History</a>
                     
-                <a class="nav-link" href="create.html">Create Event</a>
+                <a class="nav-link" href="{{ url_for('main.create') }}">Create Event</a>
 
 
                     <button type="button" class="btn btn-primary position-absolute end-0" data-bs-toggle="modal" data-bs-target="#loginModal">
@@ -74,7 +75,7 @@
 
       
 
-  {% block carousel %}
+  {% block content %}
   <!-- Carousel -->
   <div id="homeCarousel" class="carousel slide align-items-center" data-bs-ride="carousel">
 
@@ -117,14 +118,18 @@
 
     </div>
   </div>
+
+    {% block carousel %}
+    {% endblock %}
+
   </div>
 
-  {% endblock %}
 
 
 
-  {% block content %}
-        <!-- Filter Button/Modal -->
+        <!-- Filter Button, and Search Bar  -->
+
+        <div>
         <div class="dropdown">
           <button class="btn btn-primary dropdown-toggle end-0 gx-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             Filter
@@ -168,7 +173,9 @@
             </div>
           </div>
         </div>
-        {% endblock %}
+
+        {% block searchFilter %} {% endblock %}
+        </div>
 
       
 
@@ -181,6 +188,7 @@
 
       <div class="row row-cols-1 row-cols-md-3 justify-content-evenly gy-3">
 
+      {% block cards %}{% endblock %}
 
       <!-- A pub crawl -->
       <div class="card col-md-4 col-sm-6 col-xs-10 g-2" style="width: 18rem;">
@@ -223,6 +231,7 @@
 
     </body>
 
+    {% endblock %}
 
     <!-- Footer -->
     <div class="container-fluid" style="padding:0;margin:0">

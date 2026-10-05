@@ -14,14 +14,17 @@ auth_bp = Blueprint('auth', __name__)
 def login():
     login_form = LoginForm()
     error = None
+
     if login_form.validate_on_submit():
         user_name = login_form.user_name.data
         password = login_form.password.data
         user = db.session.scalar(db.select(User).where(User.name==user_name))
+
         if user is None:
             error = 'Incorrect user name'
         elif not check_password_hash(user.password_hash, password): # takes the hash and cleartext password
             error = 'Incorrect password'
+
         if error is None:
             login_user(user)
             nextp = request.args.get('next') # this gives the url from where the login page was accessed
@@ -32,3 +35,18 @@ def login():
         else:
             flash(error)
     return render_template('user.html', form=login_form, heading='Login')
+
+"""
+@auth_bp.route('/register', methods=['GET', 'POST'])
+def register():
+    register_form
+
+"""
+
+"""
+logout 
+@auth_bp.route('/logout', methods=['GET', 'POST'])
+def logout():
+    logout_user()
+
+"""

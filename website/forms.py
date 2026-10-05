@@ -1,7 +1,8 @@
 from flask_wtf import FlaskForm
 from wtforms.fields import SubmitField, StringField, PasswordField
 from wtforms.validators import InputRequired, Email, EqualTo, Length 
-
+from werkzeug.security import generate_password_hash
+from werkzeug.security import check_password_hash 
 
 
 class RegisterForm(FlaskForm):
