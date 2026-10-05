@@ -1,17 +1,62 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
 
-{% extends "base.html"}
+{% block title %}Register{% endblock %}
 
-<html lang="eng">
-    
-    <body>
-        {% block content %}
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <div class="card shadow-sm">
+                <div class="card-body p-4">
+                    <h1 class="h3 text-center mb-4">
+                        Create an account
+                    </h1>
 
+                    <form method="POST"
+                          action="{{ url_for('auth.register') }}">
+                        {{ form.hidden_tag() }}
 
+                        {% for field in [
+                            form.username,
+                            form.email,
+                            form.password,
+                            form.confirm
+                        ] %}
+                            <div class="mb-3">
+                                {{ field.label(class="form-label") }}
 
-        {% endblock %}
-    </body>
+                                {% if field.errors %}
+                                    {{ field(class="form-control is-invalid") }}
+                                {% else %}
+                                    {{ field(class="form-control") }}
+                                {% endif %}
 
+                                {% for error in field.errors %}
+                                    <div class="invalid-feedback">
+                                        {{ error }}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
 
+                        {% for error in form.csrf_token.errors %}
+                            <div class="alert alert-danger">
+                                {{ error }}
+                            </div>
+                        {% endfor %}
 
-</html>
+                        {{ form.submit(class="btn btn-primary w-100") }}
+                    </form>
+
+                    <p class="text-center mt-3 mb-0">
+                        Already have an account?
+                        <a href="{{ url_for('auth.login') }}">
+                            Login
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
