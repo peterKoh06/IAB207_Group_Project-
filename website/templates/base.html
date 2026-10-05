@@ -57,8 +57,8 @@
                     
                 <a class="nav-link" href="{{ url_for('main.create') }}">Create Event</a>
 
-
-                    <button type="button" class="btn btn-primary position-absolute end-0" data-bs-toggle="modal" data-bs-target="#loginModal">
+                  <!-- Adjust the following button to only be visible if not logged in . Otherwise, it'll be a logout button-->
+                    <button type="button" class="btn btn-primary position-absolute end-0"  href="{{ url_for('main.user') }}">
                     Login
                     </button>
 
