@@ -4,17 +4,19 @@
   {% extends "base.html" %}
 
 
-  {% block title %}Event{% endblock %}
+  {% block title %}Event {{ event }}{% endblock %}
 
     <body>
 
-
       {% block content %}
 
+      
+      {{ event }}
 
       <br>
       <!-- Image to one side, further details on the other side, 
        somewhere there's a date, a small description Then a larger description-->
+
 
 
       <div class="row">
@@ -85,7 +87,7 @@
        </div>
 
 
-
+       {% endblock %}
 
 
       

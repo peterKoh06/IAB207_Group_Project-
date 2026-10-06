@@ -9,9 +9,12 @@ def index():
     return render_template('index.html')
 
 
-@main_bp.route('/event/<int:id>')
-def event():
-    return render_template('event.html')
+@main_bp.route('/event/<int:eventID>')
+def event(eventID):
+
+    
+
+    return render_template('event.html', event=eventID)
 
 
 # History shouldn't be accessible when you aren't logged in- session 
@@ -22,10 +25,12 @@ def history():
 
 # For the payment page it should be .../eventID/payment and not just /payment 
 
-@main_bp.route('/event/<int:id>/payment')
+@main_bp.route('/event/<int:eventID>/payment')
 #@login_required
-def payment():
-    return render_template('payment.html')
+def payment(eventID):
+
+
+    return render_template('payment.html', event=eventID)
 
 
 # You shouldn't be able to create an event when you don't have an account, buuut for debug purposes it stays
