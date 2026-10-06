@@ -158,7 +158,14 @@
                 {% block carousel %}{% endblock %}
             </div>
 
-            <div class="container my-4">
+            <br>
+
+            <!-- The Search and filter buttons -->
+
+            <div class="card col-md-8 px-2 py-3 mx-auto">
+            
+            <div class="cardbody">
+            <div class="container my-4 col-2">
                 <div class="dropdown">
                     <button class="btn btn-primary dropdown-toggle"
                             type="button"
@@ -246,6 +253,15 @@
                         </div>
                     </div>
                 </div>
+
+                </div>
+
+
+                <input class="form-control px-1 col-md-8" type="text" placeholder="Search" aria-label="searchArea">
+                
+
+                </div>
+
 
                 {% block searchFilter %}{% endblock %}
             </div>
