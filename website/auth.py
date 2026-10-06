@@ -2,7 +2,7 @@ from flask import (
     Blueprint, flash, render_template,
     request, url_for, redirect
 )
-from flask_bcrypt import check_password_hash
+from flask_bcrypt import check_password_hash, generate_password_hash
 from flask_login import login_user, logout_user
 
 from .models import User
@@ -19,7 +19,7 @@ def login():
 
     if form.validate_on_submit():
         user = db.session.scalar(
-            db.select(User).where(User.name == form.username.data)
+            db.select(User).where(User.email == form.email.data)
         )
 
         if user is None:
@@ -55,14 +55,39 @@ def register():
     form = RegisterForm()
 
     if form.validate_on_submit():
-        flash(
-            'Form validated successfully. '
-            'Account creation is not connected yet.'
+        existing_user = db.session.scalar(
+            db.select(User).where(User.email == form.email.data)
         )
+
+        if existing_user:
+            flash('This email is already registered.', 'error')
+            return render_template(
+                'register.html',
+                form=form,
+                heading='Register'
+            )
+
+        password_hash = generate_password_hash(
+            form.password.data
+        ).decode('utf-8')
+
+        user = User(
+            first_name=form.first_name.data,
+            last_name=form.last_name.data,
+            email=form.email.data,
+            phone_number=form.phone_number.data,
+            password_hash=password_hash
+        )
+
+        db.session.add(user)
+        db.session.commit()
+        flash('Account created successfully. Please log in.', 'success')
+        return redirect(url_for('auth.login'))
 
     return render_template(
         'register.html',
-        form=form
+        form=form,
+        heading='Register'
     )
 
 

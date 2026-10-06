@@ -4,21 +4,26 @@ from wtforms.validators import InputRequired, Email, EqualTo, Length
 
 
 class RegisterForm(FlaskForm):
-    username = StringField(
-        'User Name',
-        validators=[InputRequired(), Length(min=3, max=12)]
+    first_name = StringField(
+        'First Name',
+        validators=[InputRequired(), Length(max=100)]
     )
-
+    last_name = StringField(
+        'Last Name',
+        validators=[InputRequired(), Length(max=100)]
+    )
     email = StringField(
         'Email',
-        validators=[InputRequired(), Email()]
+        validators=[InputRequired(), Email(), Length(max=100)]
     )
-
+    phone_number = StringField(
+        'Phone Number',
+        validators=[InputRequired(), Length(max=20)]
+    )
     password = PasswordField(
         'Password',
-        validators=[InputRequired(), Length(min=8, max=12)]
+        validators=[InputRequired(), Length(min=8, max=72)]
     )
-
     confirm = PasswordField(
         'Confirm Password',
         validators=[
@@ -26,19 +31,16 @@ class RegisterForm(FlaskForm):
             EqualTo('password', message='Passwords must match.')
         ]
     )
-
     submit = SubmitField('Register')
 
 
 class LoginForm(FlaskForm):
-    username = StringField(
-        'User Name',
-        validators=[InputRequired()]
+    email = StringField(
+        'Email',
+        validators=[InputRequired(), Email()]
     )
-
     password = PasswordField(
         'Password',
         validators=[InputRequired()]
     )
-
     submit = SubmitField('Login')

@@ -17,8 +17,10 @@
                         {{ form.hidden_tag() }}
 
                         {% for field in [
-                            form.username,
+                            form.first_name,
+                            form.last_name,
                             form.email,
+                            form.phone_number,
                             form.password,
                             form.confirm
                         ] %}

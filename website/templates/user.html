@@ -13,7 +13,7 @@
                     <form method="POST">
                         {{ form.hidden_tag() }}
 
-                        {% for field in [form.username, form.password] %}
+                        {% for field in [form.email, form.password] %}
                             <div class="mb-3">
                                 {{ field.label(class="form-label") }}
 
